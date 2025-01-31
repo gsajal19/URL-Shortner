@@ -3,11 +3,12 @@ const mysql = require('mysql');
 const app = express();
 const cors = require('cors');
 const http = require('http');
+require('dotenv').config();  
 const connection = mysql.createConnection({
-host:"bqk1s9or2e5olgq16lmk-mysql.services.clever-cloud.com",
-user: "uerttvbk0tqt8ppw",
-password: "763PggQ6rLmfQsATh77Z",
-database: "bqk1s9or2e5olgq16lmk"
+host:process.env.DB_HOST,
+user: process.env.DB_USER,
+password: process.env.DB_PASSWORD,
+database: process.env.DB_NAME
 });
 const port=5001;
 connection.connect((err)=>{
